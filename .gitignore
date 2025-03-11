@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
+*.log
+
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
