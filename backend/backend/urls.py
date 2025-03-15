@@ -16,8 +16,49 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from database.views.admin_views import AdminViewSet
+from database.views.client_views import ClientViewSet
+from database.views.product_views import ProductViewSet
+from database.views.employee_views import EmployeeViewSet
+from database.views.supplier_views import SupplierViewSet
+from database.views.payment_views import PaymentViewSet
+from database.views.sale_views import SaleViewSet
+from database.views.purchase_views import PurchaseViewSet
+from database.views.transport_views import TransportViewSet
+from database.views.expense_views import ExpenseViewSet
+from database.views.report_views import ReportViewSet
+from database.views.inventorylog_views import InventoryLogViewSet
+from database.views.purchasetransaction_views import PurchaseTransactionViewSet
+from database.views.saletransaction_views import SaleTransactionViewSet
+from django.http import HttpResponse
 
+
+def home(request):
+    return HttpResponse("Welcome to the homepage!")
+
+
+# Initialize Router
+router = DefaultRouter()
+router.register(r'employees', EmployeeViewSet)
+router.register(r'admins', AdminViewSet)
+router.register(r'suppliers', SupplierViewSet)
+router.register(r'products', ProductViewSet)
+router.register(r'clients', ClientViewSet)
+router.register(r'purchases', PurchaseViewSet)
+router.register(r'purchase-transactions', PurchaseTransactionViewSet)
+router.register(r'sales', SaleViewSet)
+router.register(r'sales-transactions', SaleTransactionViewSet)
+router.register(r'payments', PaymentViewSet)
+router.register(r'inventory-logs', InventoryLogViewSet)
+router.register(r'transports', TransportViewSet)
+router.register(r'expenses', ExpenseViewSet)
+router.register(r'reports', ReportViewSet)
+
+# URL Patterns
 urlpatterns = [
+    path('', home, name='home'),
     path("admin/", admin.site.urls),
+    path('api/', include(router.urls)),
 ]
