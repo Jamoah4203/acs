@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react'; // Optional in React 17+
+import "./App"; // Corrected import path for styles
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
+    <div>
       <h1>HELLO WORLD</h1>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
