@@ -1,12 +1,12 @@
-import React from 'react'; // Optional in React 17+
-import "./App"; // Corrected import path for styles
+import { useState } from 'react';
+import './App.css'
 
-const App = () => {
+function App () {
   return (
     <div>
-      <h1>HELLO WORLD</h1>
+      Avenue Construction Supply!
     </div>
   );
 }
 
-export default App;
+export default App
